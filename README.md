@@ -3,7 +3,6 @@
 ================================================================================
 
 📋 TABLE DES MATIÈRES
-================================================================================
 
 1. INTRODUCTION - Qu'est-ce que ce système?
 2. ARCHITECTURE - Comment les fichiers sont organisés
@@ -14,7 +13,6 @@
 7. FONCTIONNEMENT DÉTAILLÉ - Comment ça marche en interne
 
 1. INTRODUCTION
-================================================================================
 
 Objectif du système:
 -----------------------
@@ -54,74 +52,59 @@ projet_ordonnances/              ← Dossier principal
 📝 Détail de chaque fichier:
 -----------------------------
 
-┌─────────────────────────────────────────────────────────────────────────┐
-│ mirath.py - LE CŒUR CRYPTOGRAPHIQUE                                     │
-├─────────────────────────────────────────────────────────────────────────┤
-│ Rôle: Implémente le schéma de signature Mirath                          │
-│                                                                         │
-│ Contient:                                                               │
-│   • MirathParams: Paramètres du système                                 │
-│   • FiniteField: Opérations mathématiques sur F₂                        │
-│   • CryptoUtils: Fonctions de hash et générateurs                       │
-│   • MinRankProblem: Le problème mathématique de base                    │
-│   • MirathSignature: Classe principale pour signer/vérifier             │
-│                                                                         │
-│ Vous n'avez PAS besoin de modifier ce fichier sauf pour déboguer        │
-└─────────────────────────────────────────────────────────────────────────┘
+ mirath.py - LE CŒUR CRYPTOGRAPHIQUE                                     
+ Rôle: Implémente le schéma de signature Mirath                          
+                                                                         
+ Contient:                                                               
+   • MirathParams: Paramètres du système                                 
+   • FiniteField: Opérations mathématiques sur F₂                        
+   • CryptoUtils: Fonctions de hash et générateurs                       
+   • MinRankProblem: Le problème mathématique de base                    
+   • MirathSignature: Classe principale pour signer/vérifier             
+                                                                         
+ Vous n'avez PAS besoin de modifier ce fichier sauf pour déboguer        
 
-┌─────────────────────────────────────────────────────────────────────────┐
-│ ordonnance.py - STRUCTURE DES DONNÉES                                   │
-├─────────────────────────────────────────────────────────────────────────┤
-│ Rôle: Définit ce qu'est une ordonnance et comment la manipuler          │
-│                                                                         │
-│ Contient:                                                               │
-│   • Classe Ordonnance: Représente une ordonnance complète               │
-│   • creer_medicament(): Crée un médicament                              │
-│   • creer_ordonnance_interactive(): Guide pour créer une ordonnance     │
-│                                                                         │
-│ Vous pouvez modifier ce fichier si vous voulez ajouter des champs       │
-│ à l'ordonnance (ex: durée du traitement, contre-indications, etc.)      │
-└─────────────────────────────────────────────────────────────────────────┘
+ ordonnance.py - STRUCTURE DES DONNÉES                                   
+ Rôle: Définit ce qu'est une ordonnance et comment la manipuler          
+                                                                         
+ Contient:                                                               
+   • Classe Ordonnance: Représente une ordonnance complète               
+   • creer_medicament(): Crée un médicament                              
+   • creer_ordonnance_interactive(): Guide pour créer une ordonnance     
+                                                                         
+ Vous pouvez modifier ce fichier si vous voulez ajouter des champs       
+ à l'ordonnance (ex: durée du traitement, contre-indications, etc.)      
 
-┌─────────────────────────────────────────────────────────────────────────┐
-│ medecin.py - ACTIONS DES MÉDECINS                                       │
-├─────────────────────────────────────────────────────────────────────────┤
-│ Rôle: Permet aux médecins de signer des ordonnances                     │
-│                                                                         │
-│ Contient:                                                               │
-│   • Classe Medecin: Représente un médecin avec ses clés                 │
-│   • initialiser_medecin(): Crée un nouveau médecin                      │
-│   • workflow_signature_ordonnance(): Guide complet de signature         │
-│                                                                         │
-│ C'est ici que vous ajouteriez des fonctionnalités pour les médecins     │
-└─────────────────────────────────────────────────────────────────────────┘
+ medecin.py - ACTIONS DES MÉDECINS                                       
+ Rôle: Permet aux médecins de signer des ordonnances                     
+                                                                         
+ Contient:                                                               
+   • Classe Medecin: Représente un médecin avec ses clés                 
+   • initialiser_medecin(): Crée un nouveau médecin                     
+   • workflow_signature_ordonnance(): Guide complet de signature         
+                                                                         
+ C'est ici que vous ajouteriez des fonctionnalités pour les médecins     
 
-┌─────────────────────────────────────────────────────────────────────────┐
-│ pharmacie.py - ACTIONS DES PHARMACIENS                                  │
-├─────────────────────────────────────────────────────────────────────────┤
-│ Rôle: Permet aux pharmaciens de vérifier les ordonnances                │
-│                                                                         │
-│ Contient:                                                               │
-│   • Classe Pharmacie: Représente une pharmacie                          │
-│   • workflow_verification_ordonnance(): Guide de vérification           │
-│   • verifier_ordonnance_simple(): Vérification rapide                   │
-│                                                                         │
-│ C'est ici que vous ajouteriez des fonctionnalités pour les pharmacies   │
-└─────────────────────────────────────────────────────────────────────────┘
+ pharmacie.py - ACTIONS DES PHARMACIENS                                  
+ Rôle: Permet aux pharmaciens de vérifier les ordonnances                
+                                                                         
+ Contient:                                                               
+   • Classe Pharmacie: Représente une pharmacie                          
+   • workflow_verification_ordonnance(): Guide de vérification           
+   • verifier_ordonnance_simple(): Vérification rapide                   
+                                                                         
+ C'est ici que vous ajouteriez des fonctionnalités pour les pharmacies   
 
-┌─────────────────────────────────────────────────────────────────────────┐
-│ main.py - PROGRAMME PRINCIPAL                                           │
-├─────────────────────────────────────────────────────────────────────────┤
-│ Rôle: Point d'entrée du système, gère les menus interactifs             │
-│                                                                         │
-│ Contient:                                                               │
-│   • menu_principal(): Menu de choix du rôle                             │
-│   • menu_medecin(): Menu pour les médecins                              │
-│   • menu_pharmacien(): Menu pour les pharmaciens                        │
-│   • demonstration_complete(): Démo de bout en bout                      │
-│                                                                         │
-│ C'est LE FICHIER À EXÉCUTER pour utiliser le système!                   │
-└─────────────────────────────────────────────────────────────────────────┘
+ main.py - PROGRAMME PRINCIPAL                                           
+ Rôle: Point d'entrée du système, gère les menus interactifs             
+                                                                         
+ Contient:                                                               
+   • menu_principal(): Menu de choix du rôle                             
+   • menu_medecin(): Menu pour les médecins                              
+   • menu_pharmacien(): Menu pour les pharmaciens                        
+   • demonstration_complete(): Démo de bout en bout                      
+                                                                         
+ C'est LE FICHIER À EXÉCUTER pour utiliser le système!                   
 
 3. PRÉREQUIS - CE DONT VOUS AVEZ BESOIN
 ================================================================================
