@@ -1,4 +1,3 @@
-================================================================================
   GUIDE D'UTILISATION - SYSTÈME D'AUTHENTIFICATION D'ORDONNANCES MÉDICALES
   Signature Post-Quantique Mirath
 ================================================================================
@@ -14,7 +13,6 @@
 6. DÉBOGAGE - Comment résoudre les problèmes
 7. FONCTIONNEMENT DÉTAILLÉ - Comment ça marche en interne
 
-================================================================================
 1. INTRODUCTION
 ================================================================================
 
@@ -33,7 +31,6 @@ technologie résistante aux ordinateurs quantiques (cryptographie post-quantique
 Le système utilise le schéma de signature Mirath, basé sur le problème
 mathématique MinRank qui reste difficile même pour les ordinateurs quantiques.
 
-================================================================================
 2. ARCHITECTURE - ORGANISATION DES FICHIERS
 ================================================================================
 
@@ -127,7 +124,6 @@ projet_ordonnances/              ← Dossier principal
 │ C'est LE FICHIER À EXÉCUTER pour utiliser le système!                   │
 └─────────────────────────────────────────────────────────────────────────┘
 
-================================================================================
 3. PRÉREQUIS - CE DONT VOUS AVEZ BESOIN
 ================================================================================
 
@@ -174,7 +170,6 @@ Vous devez savoir ouvrir un terminal:
 - Mac: Ouvrez "Terminal" depuis Applications/Utilitaires
 - Linux: Ctrl+Alt+T (généralement)
 
-================================================================================
 4. INSTALLATION - PRÉPARATION DU SYSTÈME
 ================================================================================
 
@@ -213,7 +208,6 @@ Puis testez:
 
 Si vous voyez "Import OK", tout est prêt!
 
-================================================================================
 5. UTILISATION - COMMENT LANCER LE PROGRAMME
 ================================================================================
 
@@ -287,7 +281,6 @@ UTILISATION NORMALE:
    → Chargez l'ordonnance à vérifier
    → Le système vérifie automatiquement
 
-================================================================================
 6. DÉBOGAGE - RÉSOLUTION DES PROBLÈMES
 ================================================================================
 
@@ -364,7 +357,6 @@ Exemple:
    # Après
    print("DEBUG: Résultat =", resultat)
 
-================================================================================
 7. FONCTIONNEMENT DÉTAILLÉ - COMMENT ÇA MARCHE
 ================================================================================
 
@@ -462,7 +454,6 @@ POINTS À SURVEILLER:
 ⚠️ En production réelle, les clés devraient être dans un HSM (module
    de sécurité matériel) ou au moins chiffrées
 
-================================================================================
 📞 SUPPORT ET AIDE
 ================================================================================
 
@@ -474,7 +465,6 @@ Si vous avez des problèmes:
 4. Utilisez des print() pour déboguer (voir section 6)
 5. Regardez les commentaires dans le code (ils expliquent chaque ligne)
 
-================================================================================
 ✅ CHECKLIST FINALE
 ================================================================================
 
@@ -490,6 +480,5 @@ Avant de commencer votre projet, vérifiez:
 
 Quand tout est coché, vous êtes prêt(e) à utiliser le système!
 
-================================================================================
 FIN DU GUIDE
 ================================================================================
