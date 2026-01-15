@@ -37,20 +37,19 @@ mathématique MinRank qui reste difficile même pour les ordinateurs quantiques.
 Ce projet doit être organisé comme ceci:
 
 projet_ordonnances/              ← Dossier principal 
-│
-├── mirath.py                    ← Module cryptographique (signature Mirath)
-├── ordonnance.py                ← Gestion des ordonnances médicales
-├── medecin.py                   ← Actions des médecins (signer)
-├── pharmacie.py                 ← Actions des pharmaciens (vérifier)
-├── main.py                      ← Programme principal (à exécuter)
-│
-├── cles_medecins/               ← Dossier créé automatiquement
-│   ├── MED001_public.json       ← Clés publiques des médecins
-│   └── MED001_secret.json       ← Clés secrètes (CONFIDENTIELLES!)
-│
-└── ordonnances/                 ← Dossier pour vos ordonnances (optionnel)
-    ├── ord_patient1.json
-    └── ord_patient2.json
+  mirath.py                    ← Module cryptographique (signature Mirath)
+  ordonnance.py                ← Gestion des ordonnances médicales
+  medecin.py                   ← Actions des médecins (signer)
+  pharmacie.py                 ← Actions des pharmaciens (vérifier)
+  main.py                      ← Programme principal (à exécuter)
+
+  cles_medecins/               ← Dossier créé automatiquement
+      MED001_public.json       ← Clés publiques des médecins
+      MED001_secret.json       ← Clés secrètes (CONFIDENTIELLES!)
+
+  ordonnances/                 ← Dossier pour vos ordonnances (optionnel)
+      ord_patient1.json
+      ord_patient2.json
 
 📝 Détail de chaque fichier:
 -----------------------------
@@ -231,22 +230,22 @@ Si vous voyez "Import OK", tout est prêt!
 ---------------------
 
 MENU PRINCIPAL
-  ├── [1] Agir en tant que MÉDECIN
-  │     ├── Workflow complet (création + signature)
-  │     ├── Initialiser un nouveau médecin
-  │     └── Signer une ordonnance existante
-  │
-  ├── [2] Agir en tant que PHARMACIEN
-  │     ├── Workflow complet (vérification)
-  │     └── Vérification rapide
-  │
-  ├── [3] GESTION DU SYSTÈME
-  │     ├── Initialiser un nouveau médecin
-  │     ├── Lister les médecins
-  │     └── Afficher une ordonnance
-  │
-  └── [4] DÉMONSTRATION COMPLÈTE
-        └── Exemple de bout en bout (RECOMMANDÉ POUR DÉBUTER!)
+    [1] Agir en tant que MÉDECIN
+          Workflow complet (création + signature)
+          Initialiser un nouveau médecin
+          Signer une ordonnance existante
+  
+    [2] Agir en tant que PHARMACIEN
+          Workflow complet (vérification)
+          Vérification rapide
+  
+    [3] GESTION DU SYSTÈME
+          Initialiser un nouveau médecin
+          Lister les médecins
+          Afficher une ordonnance
+  
+    [4] DÉMONSTRATION COMPLÈTE
+          Exemple de bout en bout (RECOMMANDÉ POUR DÉBUTER!)
 
 🎯 Scénario d'utilisation typique:
 -----------------------------------
@@ -394,44 +393,6 @@ Exemple:
    Résultat: 
    - Si OUI → L'ordonnance est authentique et n'a pas été modifiée
    - Si NON → L'ordonnance est suspecte (fausse ou altérée)
-
-📊 Flux de données complet:
-----------------------------
-
-MÉDECIN                          SYSTÈME                    PHARMACIE
-  │                                 │                           │
-  │ 1. Initialisation               │                           │
-  │───────────────────────────────→ │                           │
-  │  (génère clés publique/privée)  │                           │
-  │←─────────────────────────────── │                           │
-  │                                 │                           │
-  │ 2. Crée une ordonnance          │                           │
-  │───────────────────────────────→ │                           │
-  │                                 │                           │
-  │ 3. Signe avec clé privée        │                           │
-  │───────────────────────────────→ │                           │
-  │                                 │                           │
-  │ 4. Ordonnance signée            │                           │
-  │←─────────────────────────────── │                           │
-  │                                 │                           │
-  │ 5. Envoie au patient            │                           │
-  │ (fichier JSON)                  │                           │
-  │                                 │                           │
-  │                                 │ 6. Patient apporte        │
-  │                                 │    l'ordonnance           │
-  │                                 │←──────────────────────────│
-  │                                 │                           │
-  │ 7. Partage clé publique         │                           │
-  │    (une seule fois)             │                           │
-  │─────────────────────────────────────────────────────────────→│
-  │                                 │                           │
-  │                                 │ 8. Vérifie avec clé       │
-  │                                 │    publique               │
-  │                                 │←──────────────────────────│
-  │                                 │                           │
-  │                                 │ 9. Résultat: VALIDE       │
-  │                                 │    ou INVALIDE            │
-  │                                 │───────────────────────────→│
 
 🔒 Sécurité du système:
 ------------------------
